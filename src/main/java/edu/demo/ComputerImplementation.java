@@ -44,6 +44,8 @@ public class ComputerImplementation implements Computer {
         return accessories.stream()
                 .map(Accessory::getInfo)
                 .collect(Collectors
-                        .joining("\n", "Computer summary: ".concat(name), "\n"));
+                        .joining("\n",
+                                "Computer summary: ".concat(name).concat("\n"),
+                                "\n"));
     }
 }

@@ -122,7 +122,6 @@ class ComputerImplementationTest implements ConstantsTest {
     @Test
     void textInformationAboutComputer_getComputerDescription_returnsStringValue() {
         final String computerDescription = highProductivityComputer.getComputerDescription();
-        System.out.println(computerDescription);
         assertNotNull(computerDescription);
     }
 }
