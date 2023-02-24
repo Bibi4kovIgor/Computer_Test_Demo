@@ -1,5 +1,11 @@
 package edu.demo;
 
+import java.util.List;
+
 public interface Computer {
-    void buildComputer();
+        String getProductivity();
+
+        String getComputerDescription();
+
+        List<Accessory> getAccessories();
 }

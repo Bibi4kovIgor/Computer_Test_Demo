@@ -1,23 +1,14 @@
 package edu.demo;
 
-public class Storage {
+public class Storage extends Accessory implements Cloneable {
 
-    private String model;
     private int volume;
     private String type;
 
     public Storage(String model, int volume, String type) {
-        this.model = model;
+        super(model);
         this.volume = volume;
         this.type = type;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public int getVolume() {
@@ -34,5 +25,34 @@ public class Storage {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Storage{" +
+                "model='" + model + '\'' +
+                ", volume=" + volume +
+                ", type='" + type + '\'' +
+                '}';
+    }
+
+    @Override
+    public double getProductivity() {
+        double productivity = 1.0;
+        if (volume < 500) {
+            productivity *= 0.5;
+        }
+
+        if (volume >= 1000) {
+            productivity *= 1.5;
+        }
+
+        return productivity;
+    }
+
+    @Override
+    protected Storage clone() throws CloneNotSupportedException {
+        super.clone();
+        return new Storage(model, volume, type);
     }
 }
